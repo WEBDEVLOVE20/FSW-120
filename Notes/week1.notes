@@ -1,0 +1,222 @@
+ReactDOM & JSX:
+
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+ReactDOM.render(WHAT DO I WANT TO RENDER, WHERE DO I WANT TO RENDER IT)
+
+// JSX
+ReactDOM.render(<div><h1>Hello world!</h1><p>This is a paragraph</p></div>, document.getElementById("root"))
+
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="root"></div>
+        <script src="index.pack.js"></script>
+    </body>
+</html>
+
+
+Practice:
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+ReactDOM.render(
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>,
+  document.getElementById("root")
+)
+
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="root"></div>
+        <script src="index.pack.js"></script>
+    </body>
+</html>
+
+
+REACT FUNCTIONAL COMPONENTS:
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+function MyApp() {
+  return (
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  )
+}
+
+ReactDOM.render(
+  <MyApp />,
+  document.getElementById("root")
+)
+
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="root"></div>
+        <script src="index.pack.js"></script>
+    </body>
+</html>
+
+PRACTICE:
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+function MyInfo() {
+  return (
+    <div>
+      <h1>Bob Ziroll</h1>
+      <p>This is a paragraph about me...</p>
+      <ul>
+        <li>Thailand</li>
+        <li>Japan</li>
+        <li>Nordic Countries</li>
+      </ul>
+    </div>
+  )
+}
+
+ReactDOM.render(<MyInfo />, document.getElementById("root"))
+
+
+MOVE COMPONENTS INTO SEPARATE FILES:
+
+INDEX.JS
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+import MyInfo from "./components/MyInfo"
+
+ReactDOM.render(<MyInfo />, document.getElementById("root"))
+
+
+
+COMPONENTS FOLDER >> MyInfo.js 
+
+import React from "react"
+
+function MyInfo() {
+  return (
+    <div>
+      <h1>Bob Ziroll</h1>
+      <p>This is a paragraph about me...</p>
+      <ul>
+        <li>Thailand</li>
+        <li>Japan</li>
+        <li>Nordic Countries</li>
+      </ul>
+    </div>
+  )
+}
+
+REACT PARENT/CHILD COMPONENTS:
+
+index.js
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+import App from "./App"
+
+ReactDOM.render(<App />, document.getElementById("root"))
+
+
+
+
+
+Footer.js
+
+import React from "react"
+
+function Footer() {
+    return (
+        <footer>
+            <h3>This is my footer element</h3>
+        </footer>
+    )
+}
+
+export default Footer
+
+
+
+
+App.js
+
+import React from "react"
+import Footer from "./Footer"
+
+function App() {
+    return (
+        <div>
+            <Header />
+            <MainContent />
+            <Footer />
+        </div>
+    )
+}
+
+export default App
+
+
+REACT ToDo APP - Phase 1:
+
+index.js
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+import App from "./App"
+
+ReactDOM.render(<App />, document.getElementById("root"))
+
+
+
+
+App.js
+
+import React from "react"
+
+function App() {
+    return (
+        <div>
+            <input type="checkbox" />
+            <p>Placeholder text here</p>
+            
+            <input type="checkbox" />
+            <p>Placeholder text here</p>
+            
+            <input type="checkbox" />
+            <p>Placeholder text here</p>
+            
+            <input type="checkbox" />
+            <p>Placeholder text here</p>
+        </div>
+    )
+}
+
+export default App
+
+
+
+
+

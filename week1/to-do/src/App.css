@@ -1,0 +1,15 @@
+html {
+    background-color: cadetblue;
+}
+
+.list {
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+.title {
+    text-align: center;
+    font-size: 45px;
+    background-color: wheat;
+    margin-bottom: 5%;
+}
