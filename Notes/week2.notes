@@ -516,3 +516,8 @@ npm start
 This command creates a react app in a directory called ‘my-app’
 This moves you into that folder on your computer
 This boots up the dev server.  Then you would just open it in Visual Studio Code or other IDE you are using.
+
+
+Default Props:
+
+

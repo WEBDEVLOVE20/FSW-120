@@ -2,8 +2,9 @@ import React from 'react'
 
 function ColoredBoxes(props) {
 
-    let styles = styled
-    
+    const styles = {
+        backgroundColor: props.boxColor
+    }
     
     return (
         <div style ={styles}>
