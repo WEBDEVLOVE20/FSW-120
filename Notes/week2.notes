@@ -1,0 +1,518 @@
+Styling react with classes:
+
+***index.js***
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+import App from "./App"
+
+ReactDOM.render(<App />, document.getElementById("root"))
+
+
+***App.js***
+
+import React from "react"
+
+import Header from "./components/Header"
+import MainContent from "./components/MainContent"
+import Footer from "./components/Footer"
+
+function App() {
+    return (
+        <div>
+            <Header />
+            <MainContent />
+            <Footer />
+        </div>
+    )
+}
+
+export default App
+
+
+
+components folder >>>>
+
+***Header.js***
+
+import React from "react"
+
+function Header() {
+    return (
+        <header className="navbar">This is the header</header>
+    )
+}
+
+export default Header
+
+***MainContent.js***
+
+import React from "react"
+
+function MainContent() {
+    return (
+        <main>This is the main section</main>
+    )
+}
+
+export default MainContent
+
+
+***Footer.js***
+
+import React from "react"
+
+function Footer() {
+    return (
+        <footer>This is the footer</footer>
+    )
+}
+
+export default Footer
+
+*** style.css***
+
+body {
+    margin: 0;
+}
+
+.navbar {
+    height: 100px;
+    background-color: #333;
+    color: whitesmoke;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+JSX to JavaScript and Back:
+
+***index.js example
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+function App() {
+  const firstName = "Bob"
+  const lastName = "Ziroll"
+  
+  return (
+    <h1>Hello {`${firstName} ${lastName}`}!</h1>
+  )
+}
+
+ReactDOM.render(<App />, document.getElementById("root"))
+
+
+
+***index.js***
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+function App() {
+  const date = new Date()
+  const hours = date.getHours()
+  let timeOfDay
+  
+  if (hours < 12) {
+    timeOfDay = "morning"
+  } else if (hours >= 12 && hours < 17) {
+    timeOfDay = "afternoon"
+  } else {
+    timeOfDay = "night"
+  }
+  
+  return (
+    <h1>Good {timeOfDay}!</h1>
+  )
+}
+
+ReactDOM.render(<App />, document.getElementById("root"))
+
+
+React Inline Styles with the Style Property:
+
+***index.js example
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+function App() {
+  const date = new Date()
+  const hours = date.getHours()
+  let timeOfDay
+  
+  if (hours < 12) {
+    timeOfDay = "morning"
+  } else if (hours >= 12 && hours < 17) {
+    timeOfDay = "afternoon"
+  } else {
+    timeOfDay = "night"
+  }
+  
+  const styles = {
+    color: "#FF8C00", 
+    backgroundColor: "#FF2D00",
+    fontSize: "200px" //200 automically defaults to pixels
+  }
+  
+  return (
+    <h1 style={styles}>Good {timeOfDay}!</h1>
+  )
+}
+
+ReactDOM.render(<App />, document.getElementById("root"))
+
+
+***index.js -- shows differnt color for different time on day.***
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+function App() {
+  const date = new Date()
+  const hours = date.getHours()
+  let timeOfDay
+  const styles = {
+    fontSize: 30
+  }
+  
+  if (hours < 12) {
+    timeOfDay = "morning"
+    styles.color = "#04756F"
+  } else if (hours >= 12 && hours < 17) {
+    timeOfDay = "afternoon"
+    styles.color = "#2E0927"
+  } else {
+    timeOfDay = "night"
+    styles.color = "#D90000"
+  }
+  
+  return (
+    <h1 style={styles}>Good {timeOfDay}!</h1>
+  )
+}
+
+ReactDOM.render(<App />, document.getElementById("root"))
+
+
+***index.js certain time of day will set off differnt color-- date set***
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+function App() {
+  const date = new Date(2018, 6, 31, 15)
+  const hours = date.getHours()
+  let timeOfDay
+  const styles = {
+    fontSize: 30
+  }
+  
+  if (hours < 12) {
+    timeOfDay = "morning"
+    styles.color = "#04756F"
+  } else if (hours >= 12 && hours < 17) {
+    timeOfDay = "afternoon"
+    styles.color = "#8914A3"
+  } else {
+    timeOfDay = "night"
+    styles.color = "#D90000"
+  }
+  
+  return (
+    <h1 style={styles}>Good {timeOfDay}!</h1>
+  )
+}
+
+ReactDOM.render(<App />, document.getElementById("root"))  
+
+
+React Todo App - Phase 2:
+
+**index.js**
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+import App from "./App"
+
+ReactDOM.render(<App />, document.getElementById("root"))
+
+
+**App.js**
+
+
+import React from "react"
+import TodoItem from "./TodoItem"
+
+function App() {
+    return (
+        <div className="todo-list">
+            <TodoItem />
+            <TodoItem />
+            <TodoItem />
+            <TodoItem />
+        </div>
+    )
+}
+
+export default App
+
+
+**Todoitem.js**
+
+import React from "react"
+
+function TodoItem() {
+    return (
+        <div className="todo-item">
+            <input type="checkbox" />
+            <p>Placeholder text here</p>
+        </div>
+    )
+}
+
+export default TodoItem
+
+
+**style.css**
+
+body {
+    background-color: whitesmoke;
+}
+
+.todo-list {
+    background-color: white;
+    margin: auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #efefef;
+    box-shadow:
+    /* The top layer shadow */
+        0 1px 1px rgba(0,0,0,0.15),
+            /* The second layer */
+        0 10px 0 -5px #eee,
+            /* The second layer shadow */
+        0 10px 1px -4px rgba(0,0,0,0.15),
+            /* The third layer */
+        0 20px 0 -10px #eee,
+            /* The third layer shadow */
+        0 20px 1px -9px rgba(0,0,0,0.15);
+    padding: 30px;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px 20px 0;
+    width: 70%;
+    border-bottom: 1px solid #cecece;
+    font-family: Roboto, sans-serif;
+    font-weight: 100;
+    font-size: 15px;
+    color: #333333;
+}
+
+input[type=checkbox] {
+    margin-right: 10px;
+    font-size: 30px;
+}
+
+input[type=checkbox]:focus {
+    outline: 0;
+}
+
+
+
+
+Props:
+
+**index.js**
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+import App from "./App"
+
+ReactDOM.render(<App />, document.getElementById("root"))
+
+
+
+**App.js**
+
+import React from "react"
+import ContactCard from "./ContactCard"
+
+function App() {
+    return (
+        <div className="contacts">
+            <ContactCard 
+                contact={{name: "Mr. Whiskerson", imgUrl: "http://placekitten.com/300/200", phone: "(212) 555-1234", email: "mr.whiskaz@catnap.meow"}}
+            />
+            
+            <ContactCard 
+                contact={{name: "Fluffykins", imgUrl: "http://placekitten.com/400/200", phone: "(212) 555-2345", email: "fluff@me.com"}}
+            />
+            
+            <ContactCard
+                contact={{name: "Destroyer", imgUrl: "http://placekitten.com/400/300", phone: "(212) 555-3456", email: "ofworlds@yahoo.com"}}
+            />
+            
+            <ContactCard 
+                contact={{name: "Felix", imgUrl: "http://placekitten.com/200/100", phone: "(212) 555-4567", email: "thecat@hotmail.com"}}
+            />
+            
+        </div>
+    )
+}
+
+export default App
+
+
+
+**ContactCard.js**
+
+import React from "react"
+
+function ContactCard(props) {
+    console.log(props)
+    return (
+        <div className="contact-card">
+            <img src={props.contact.imgUrl}/>
+            <h3>{props.contact.name}</h3>
+            <p>Phone: {props.contact.phone}</p>
+            <p>Email: {props.contact.email}</p>
+        </div>
+    )
+}
+
+export default ContactCard
+
+
+**style.css**
+
+body {
+    margin: 0;
+}
+
+.contacts {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contact-card {
+    flex-basis: 250px;
+    margin: 20px;
+}
+
+.contact-card > img {
+    width: 100%;
+    height: auto;
+}
+
+.contact-card > h3 {
+    text-align: center;
+}
+
+.contact-card > p {
+    font-size: 12px;
+}
+
+
+React Props and Styling Practice:
+
+**index.js**
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+import App from "./App"
+
+ReactDOM.render(<App />, document.getElementById("root"))
+
+
+**App.js**
+
+import React from "react"
+
+import Joke from "./Joke"
+
+function App() {
+    return (
+        <div>
+            <Joke punchLine="It’s hard to explain puns to kleptomaniacs because they always take things literally." />
+            
+            <Joke 
+                question="What's the best thing about Switzerland?" 
+                punchLine="I don't know, but the flag is a big plus!"
+            />
+            
+            <Joke 
+                question="Did you hear about the mathematician who's afraid of negative numbers?" 
+                punchLine="He'll stop at nothing to avoid them!"
+            />
+            
+            <Joke 
+                question="Hear about the new restaurant called Karma?" 
+                punchLine="There’s no menu: You get what you deserve."
+            />
+            
+            <Joke 
+                question="Did you hear about the actor who fell through the floorboards?" 
+                punchLine="He was just going through a stage."
+            />
+            
+            <Joke 
+                question="Did you hear about the claustrophobic astronaut?" 
+                punchLine="He just needed a little space."
+            />
+            
+        </div>
+    )
+}
+
+export default App
+
+
+**Joke.js**
+
+import React from "react"
+
+function Joke(props) {
+    return (
+        <div>
+            <h3 style={{display: props.question ? "block" : "none"}}>Question: {props.question}</h3> // or you can use style={{display: !props.question && "none"}}
+            <h3>Answer: {props.punchLine}</h3> // or add to change color of only answer style={{color: !props.question && "#888888"}}
+            <hr/>
+        </div>
+    )
+}
+
+export default Joke
+
+
+create react app with NPX:
+
+Read Install create-react-app with NPX
+Read this short article
+
+NPX allows you to install instances of packages, like create-react-app.
+This ensures the most recent version of react is always installed and you don’t have to globally install the create-react-app package.
+Commands to create a new react app
+npx create-react-app my-app
+cd my-app
+npm start
+This command creates a react app in a directory called ‘my-app’
+This moves you into that folder on your computer
+This boots up the dev server.  Then you would just open it in Visual Studio Code or other IDE you are using.
