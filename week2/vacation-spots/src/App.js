@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import vacaSpots from './locations/vacaSpots'
 import Spot from './locations/Spot'
-// import Header from './locations/Header'
+import Header from './locations/Header'
 
 function App() {
   
@@ -10,11 +10,8 @@ function App() {
     
     return (
         <div>
-
-          {/* <Header /> */}
-
+        <Header /> 
         {vacationComps}
-
         </div>
     )
 }

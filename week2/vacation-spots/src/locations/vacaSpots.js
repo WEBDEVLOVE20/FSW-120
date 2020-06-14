@@ -15,7 +15,7 @@ let vacaSpots = [
     {
         id: 3,
         place: "Ko Samui, Thialand",
-        price: 3500,
+        price: 987,
         timeToGo: "Summer"
     },
     {
