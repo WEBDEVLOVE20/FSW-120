@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import ColoredBoxes from "./ColoredBoxes"
+import ColoredBoxes from './ColoredBoxes';
 
 function App() {
   return (
@@ -39,4 +39,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
