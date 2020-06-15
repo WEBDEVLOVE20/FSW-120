@@ -1,11 +1,12 @@
 import React from 'react'
+import './footer.css'
 
 function Footer() {
     return (
-        <div>
-            <img src="https://img.icons8.com/ios-filled/50/000000/facebook-new.png"/>
-            <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png"/>
-            <img src="https://img.icons8.com/ios-filled/50/000000/pinterest.png"/>
+        <div className="footerContainer">
+            <img className="imagesrc" src="https://img.icons8.com/ios-filled/60/000000/twitter-circled.png"/>
+            <img className="imagesrc" src="https://img.icons8.com/ios-filled/60/000000/facebook-new.png"/>
+            <img className="imagesrc" src="https://img.icons8.com/material-outlined/60/000000/github.png"/>
             <p>Copyright © Your Website 2019</p>
         </div>
     )

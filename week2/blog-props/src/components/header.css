@@ -1,0 +1,25 @@
+.headercontainer {
+    background: 
+    linear-gradient(
+      rgba(2, 0, 8, 0.45), 
+      rgba(0, 0, 0, 0.342)
+    ),
+    url("https://blackrockdigital.github.io/startbootstrap-clean-blog/img/home-bg.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 525px;
+    color: white;
+}
+
+.cleanBlog {
+    font-size:  80px;
+    margin-top: 150px;
+    text-align: center;
+    font-weight: 800;
+}
+
+.smallerHeading {
+    text-align: center;
+    font-weight: lighter;
+    font-size: 25px;
+}

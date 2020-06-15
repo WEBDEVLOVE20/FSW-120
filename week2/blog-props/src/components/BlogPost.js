@@ -1,14 +1,14 @@
 import React from 'react'
+import './blogpost.css';
 
 function BlogPost(props) {
 
     return (
-        <div>
-            <h3>{props.title}</h3>
-            <h3>{props.subTitle}</h3>
-            <h3>Posted by {props.author}</h3>
-            <h3>on {props.date}</h3>
-            <button>Older Posts</button>
+        <div className="blogContainer">
+            <h2 className="blogTitle">{props.title}</h2>
+            <h3 className="blogSubtitle">{props.subtitle}</h3>
+            <span className="blogAuthor">Posted by <strong>{props.author}</strong></span>
+            <span className="blogDate"> on {props.date}</span>
             <hr/>
         </div>
     )

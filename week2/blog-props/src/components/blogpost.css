@@ -1,0 +1,47 @@
+.blogContainer {
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 55px;
+    margin-bottom: 20px;
+    padding: 25px;
+}
+
+.blogTitle {
+    font-weight: 800;
+    line-height: 1.2;
+    font-size: 36px;
+}
+
+.blogTitle:hover {
+    color: #0085a1;
+}
+
+.blogSubtitle{
+    line-height: 1.5;
+    margin: 0 0 10px;
+    font-weight: 400;
+    font-size: 30px;
+}
+
+.blogSubtitle:hover {
+    color: #0085a1
+}
+
+.blogAuthor {
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 0;
+    color: #868e96;
+}
+
+.blogDate {
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 0;
+    color: #868e96;
+}
+
+hr {
+    margin-top: 25px;
+    color: #868e96;
+}

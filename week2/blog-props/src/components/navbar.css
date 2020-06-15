@@ -1,0 +1,21 @@
+.navbarContainer {
+    padding-top: 20px;
+}
+
+.startBootstrap {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: left;
+    margin-right: 27%;
+    margin-left: 22%;
+    color: white;
+}
+
+.navbarOptions {
+    text-decoration: none;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}

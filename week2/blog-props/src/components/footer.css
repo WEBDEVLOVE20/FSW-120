@@ -1,0 +1,16 @@
+.footerContainer {
+    color: #868e96;
+    text-align: center;
+    margin-top: 40px;
+}
+
+img:hover {
+    background: #0085a1;
+    border-radius: 60%;
+}
+
+.imagesrc {
+    margin-right: 20px;
+    margin-bottom: 20px;
+    color: #212529;
+}

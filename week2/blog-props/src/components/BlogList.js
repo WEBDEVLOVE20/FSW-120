@@ -1,15 +1,16 @@
 import React from 'react'
 import BlogPost from './BlogPost'
 import blogInfo from './blogInfo'
+import './blogList.css'
 
-function BlogList(props) {
+function BlogList() {
 
-    const blogPostComps = blogInfo.map(blogList => <blogList key={blogList.id} title={blogList.title} subTitle={blogList.subTitle} author={blogList.author} date={blogList.date} />)
+    const blogPostComps = blogInfo.map(blog => <BlogPost key={blog.id} title={blog.title} subtitle={blog.subtitle} author={blog.author} date={blog.date} />)
 
     return (
         <div>
             {blogPostComps}
-            <BlogPost />
+            <button>Older Posts &rarr;</button>
         </div>
     )
 }

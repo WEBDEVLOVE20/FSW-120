@@ -1,13 +1,14 @@
 import React from 'react'
+import './navbar.css';
 
 function Navbar() {
     return (
-        <div>
-            <a href="#">Start Bootstrap</a>
-            <a href="#">HOME</a>
-            <a href="#">ABOUT</a>
-            <a href="#">SAMPLE POST</a>
-            <a href="#">CONTACT</a>
+        <div className="navbarContainer">
+            <a className="startBootstrap" href="#">Start Bootstrap</a>
+            <a className="navbarOptions" href="#">HOME</a>
+            <a className="navbarOptions" href="#">ABOUT</a>
+            <a className="navbarOptions" href="#">SAMPLE POST</a>
+            <a className="navbarOptions" href="#">CONTACT</a>
         </div>
     )
 }
