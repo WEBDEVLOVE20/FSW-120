@@ -32,4 +32,21 @@ let vacaSpots = [
     }
 ]
 
+// function dollarSign() {
+
+// const newPrice = vacaSpots.price
+// console.log(newPrice)
+
+// if (price < 500) {
+//     return `$${price}`
+//  }
+//  if (props.price < 1000) {
+//      return `$$${price}`
+//  }
+//  else {
+//      return `$$$${price}`
+//  }
+
+// }
+// dollarSign()
 export default vacaSpots
