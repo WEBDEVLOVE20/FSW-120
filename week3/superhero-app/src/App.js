@@ -6,7 +6,7 @@ import HeroList from './components/heroList/HeroList';
 function App() {
   return (
     <div className="App">
-      <HeroList / >
+      <HeroList />
     </div>
   )
 }

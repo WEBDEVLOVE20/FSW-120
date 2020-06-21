@@ -8,16 +8,11 @@ class HeroList extends React.Component {
         this.state = {
             heros: data
         }
-        // this.handleChange = this.handleChange.bind(this)
     }
 
-    // handleChange = (e) => {
-    //     if (this.state.name)
-    // }
-   
-
     render () {
-        const heroList = this.state.heros.map(item => <SuperHero key={item.id} item={item} handleChange={this.handleChange}/>)
+        
+        const heroList = this.state.heros.map(item => <SuperHero key={item.id} item={item} handleClick={() => { return (alert(item.catchPhrase))}}/>)
 
         return (
             <div>
