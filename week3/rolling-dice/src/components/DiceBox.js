@@ -15,7 +15,6 @@ class DiceBox extends React.Component {
     }
     this.handleClick = this.handleClick.bind(this)
     }
-
     handleClick() {
         this.setState(prevState => {
             return {
@@ -27,11 +26,10 @@ class DiceBox extends React.Component {
             }
         })
     }
-
     render() {
         return (
             <div>
-                <h1>Roll the Dice below!</h1>
+                <h1 className="heading">Roll the Dice below!</h1>
                 <Die num={this.state.num1}/>
                 <Die num={this.state.num2}/>
                 <Die num={this.state.num3}/>
