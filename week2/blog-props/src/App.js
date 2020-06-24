@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import BlogList from './components/BlogList'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import BlogList from './components/bloglist/BlogList'
+import Header from './components/header/Header'
+import Footer from './components/footer/Footer'
 
 function App() {
   

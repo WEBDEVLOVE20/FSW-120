@@ -1,6 +1,6 @@
 import React from 'react'
-import BlogPost from './BlogPost'
-import blogInfo from './blogInfo'
+import BlogPost from '../blogpost/BlogPost'
+import blogInfo from '../bloginfo/blogInfo'
 import './blogList.css'
 
 function BlogList() {

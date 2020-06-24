@@ -1,4 +1,4 @@
-.footerContainer {
+.footer-container {
     color: #868e96;
     text-align: center;
     margin-top: 40px;
@@ -9,7 +9,7 @@ img:hover {
     border-radius: 60%;
 }
 
-.imagesrc {
+.image-src {
     margin-right: 20px;
     margin-bottom: 20px;
     color: #212529;

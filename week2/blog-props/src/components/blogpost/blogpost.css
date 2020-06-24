@@ -1,4 +1,4 @@
-.blogContainer {
+.blog-container {
     margin-left: 30%;
     margin-right: 30%;
     margin-top: 55px;
@@ -6,35 +6,35 @@
     padding: 25px;
 }
 
-.blogTitle {
+.blog-title {
     font-weight: 800;
     line-height: 1.2;
     font-size: 36px;
 }
 
-.blogTitle:hover {
+.blog-title:hover {
     color: #0085a1;
 }
 
-.blogSubtitle{
+.blog-subtitle{
     line-height: 1.5;
     margin: 0 0 10px;
     font-weight: 400;
     font-size: 30px;
 }
 
-.blogSubtitle:hover {
+.blog-subtitle:hover {
     color: #0085a1
 }
 
-.blogAuthor {
+.blog-author {
     font-size: 18px;
     font-style: italic;
     margin-top: 0;
     color: #868e96;
 }
 
-.blogDate {
+.blog-date {
     font-size: 18px;
     font-style: italic;
     margin-top: 0;

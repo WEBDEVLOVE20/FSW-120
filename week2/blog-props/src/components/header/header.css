@@ -1,4 +1,4 @@
-.headercontainer {
+.header-container {
     background: 
     linear-gradient(
       rgba(2, 0, 8, 0.45), 
@@ -11,14 +11,14 @@
     color: white;
 }
 
-.cleanBlog {
+.clean-blog {
     font-size:  80px;
     margin-top: 150px;
     text-align: center;
     font-weight: 800;
 }
 
-.smallerHeading {
+.smaller-heading {
     text-align: center;
     font-weight: lighter;
     font-size: 25px;
