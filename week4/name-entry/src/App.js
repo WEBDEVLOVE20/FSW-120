@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import NameForm from './name-entries/NameForm'
+import NameForm from './name-entries/nameForm/NameForm';
 
 function App() {
   return (
@@ -9,6 +9,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;
