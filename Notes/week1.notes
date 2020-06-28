@@ -1,14 +1,14 @@
 create react app with NPX:
 
-Read Install create-react-app with NPX
+#Read Install create-react-app with NPX
 Read this short article
 
 NPX allows you to install instances of packages, like create-react-app.
 This ensures the most recent version of react is always installed and you don’t have to globally install the create-react-app package.
 Commands to create a new react app
-npx create-react-app my-app
-cd my-app
-npm start
+#npx create-react-app my-app
+#cd my-app
+#npm start
 This command creates a react app in a directory called ‘my-app’
 This moves you into that folder on your computer
 This boots up the dev server.  Then you would just open it in Visual Studio Code or other IDE you are using.

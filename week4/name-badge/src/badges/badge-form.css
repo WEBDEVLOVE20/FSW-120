@@ -1,0 +1,47 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 5%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 3%;
+    background-color: white;
+}
+
+.input-left {
+    width: 95%;
+    border: 2px solid black;
+    margin-bottom: 20px;
+    padding: 3px;
+    font-size: 15px;
+}
+
+.input-right {
+    margin-left: 5%;
+    border: 2px solid black;
+    margin-bottom: 20px;
+    padding: 3px;
+    font-size: 15px;
+}
+
+.text-area {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.text-box {
+    border: 2px solid black;
+    font-size: 15px;
+}
+
+.submit-button {
+    width: 20%;
+    align-self: center;
+    margin-top: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 20px;
+}
