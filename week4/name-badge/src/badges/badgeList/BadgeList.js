@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BadgeCard from './BadgeCard';
+import BadgeCard from '../badgeCard/BadgeCard';
 
 class BadgeList extends Component {
 
