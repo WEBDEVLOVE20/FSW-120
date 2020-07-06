@@ -1,0 +1,675 @@
+Fetching data from an API with React:
+
+**App.js**
+
+import React, {Component} from "react"
+
+// https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch
+// https://swapi.co/
+// https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
+
+class App extends Component {
+    constructor() {
+        super()
+        this.state = {
+            loading: false,
+            character: {}
+        }
+    }
+    
+    componentDidMount() {
+        this.setState({loading: true})
+        fetch("https://swapi.co/api/people/1")
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    loading: false,
+                    character: data
+                })
+            })
+    }
+    
+    render() {
+        const text = this.state.loading ? "loading..." : this.state.character.name
+        return (
+            <div>
+                <p>{text}</p>
+            </div>
+        )
+    }
+}
+
+export default App
+
+
+
+React Router - BrowserRouter:
+
+**index.js**
+
+import React from "react"
+import ReactDOM from "react-dom"
+import {BrowserRouter} from "react-router-dom"
+
+import App from "./App"
+
+ReactDOM.render(
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>, 
+    document.getElementById("root")
+)
+
+
+React Router - Link:
+
+
+**App.js**
+
+import React from "react"
+import {Link} from "react-router-dom"
+
+function App() {    
+    return (
+        <div>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+        </div>
+    )
+}
+
+export default App
+
+
+Switch & Route:
+
+import React from "react"
+import {Link, Switch, Route} from "react-router-dom"
+
+import Home from "./Home"
+import About from "./About"
+
+function App() {    
+    return (
+        <div>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            
+            <Switch>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+                <Route path="/about">
+                    <About />
+                </Route>
+            </Switch>
+        </div>
+    )
+}
+
+export default App
+
+
+React Router- props passed to routed components:
+
+**index.js**
+
+import React from "react"
+import ReactDOM from "react-dom"
+import {BrowserRouter as Router} from "react-router-dom"
+
+import App from "./App"
+
+ReactDOM.render(
+    <Router>
+        <App />
+    </Router>, 
+    document.getElementById("root")
+)
+
+
+**App.js**
+
+import React from "react"
+import {Link, Switch, Route} from "react-router-dom"
+
+import Home from "./Home"
+import About from "./About"
+
+function App() {    
+    return (
+        <div>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            
+            <Switch>
+                <Route exact path="/"><Home /></Route>
+                <Route path="/about" component={About} />
+            </Switch>
+        </div>
+    )
+}
+
+export default App
+
+**Home.js**
+
+
+import React from "react"
+import {useLocation, useParams, useHistory, useRouteMatch} from "react-router-dom"
+
+function Home(props) {
+    return (
+        <h1>Home Page</h1>
+    )
+}
+
+export default Home
+
+// {
+//     history: {
+//         length: 32, 
+//         action: "POP", 
+//         location: {
+//             pathname: "/", 
+//             search: "", 
+//             hash: "", 
+//             state: null
+//         }, 
+//         createHref: createHref(location), 
+//         push: push(path, state), 
+//         replace: replace(path, state), 
+//         go: go(n), 
+//         goBack: goBack(), 
+//         goForward: goForward(), 
+//         block: block(prompt), 
+//         listen: listen(listener)
+//     }, 
+//     location: {
+//         pathname: "/", 
+//         search: "", 
+//         hash: "", 
+//         state: null
+//     }, 
+//     match: {
+//         path: "/", 
+//         url: "/", 
+//         isExact: true, 
+//         params: {}
+//     }, 
+//     staticContext: null
+// }
+
+
+React Router Nested Routes:
+
+
+
+
+
+#components Folder
+
+**Header.js**
+
+import React from "react"
+import {Link} from "react-router-dom"
+
+function Header() {
+    return (
+        <header>
+            <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/profile">Profile</Link></li>
+            </ul>
+        </header>
+    )
+}
+
+export default Header
+
+
+**Footer.js**
+
+import React from "react"
+
+function Footer() {
+    return (
+        <footer>
+            <p className="footer">©2020 - Router Technology Group</p>
+        </footer>
+    )
+}
+
+export default Footer
+
+#pages Folder
+
+**Home.js**
+
+import React from "react"
+
+function Home() {
+    return (
+        <h1>Home Page</h1>
+    )
+}
+
+export default Home
+
+
+#pages Folder
+
+**Home.js**
+
+import React from "react"
+
+function Home() {
+    return (
+        <h1>Home Page</h1>
+    )
+}
+
+export default Home
+
+#profile Folder under pages Folder
+
+**Info.js**
+
+import React from "react"
+
+function Info() {
+    return (
+        <section>
+            <h1>Profile Info</h1>
+            <p>Hello, user! Tons of useful info here...</p>
+        </section>
+    )
+}
+
+export default Info
+
+**Profile.js**
+
+
+import React from "react"
+import {Link, Switch, Route} from "react-router-dom"
+
+import Settings from "./Settings"
+import Info from "./Info"
+
+function Profile() {
+    return (
+        <div>
+            <h1>Profile Page</h1>
+            <ul>
+                <li><Link to="/profile/info">Profile Info</Link></li>
+                <li><Link to="/profile/settings">Profile Settings</Link></li>
+            </ul>
+            
+            <Switch>
+                <Route path="/profile/info">
+                    <Info/>
+                </Route>
+                <Route path="/profile/settings">
+                    <Settings/>
+                </Route>
+            </Switch>
+        </div>
+    )
+}
+
+export default Profile
+
+**Settings.js**
+
+import React from "react"
+
+function ProfileSettings() {
+    return (
+        <section>
+            <h1>Profile settings</h1>
+            <input type="password"/>
+            <button>Change</button>
+        </section>
+    )
+}
+
+export default ProfileSettings
+
+React Router useParams:
+
+**index.js**
+
+import React from "react"
+import ReactDOM from "react-dom"
+import {BrowserRouter as Router} from "react-router-dom"
+import App from "./App"
+
+ReactDOM.render(
+    <Router>
+        <App />
+    </Router>, 
+    document.getElementById("root")
+)
+
+**App.js**
+
+import React from "react"
+import Header from "./components/Header"
+import Home from "./pages/Home"
+import ServicesList from "./pages/services/ServicesList"
+import ServiceDetail from "./pages/services/ServiceDetail"
+
+import {Switch, Route} from "react-router-dom"
+
+function App() {    
+    return (
+        <div>
+            <Header />
+            
+            <Switch>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+                <Route exact path="/services" >
+                    <ServicesList />
+                </Route>
+                <Route path="/services/:serviceId" >
+                    <ServiceDetail />
+                </Route>
+            </Switch>
+        </div>
+    )
+}
+
+export default App
+
+#components Folder
+
+**Header.js**
+
+import React from "react"
+import {Link} from "react-router-dom"
+
+function Header() {
+    return (
+        <header>
+            <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/services">Services</Link></li>
+            </ul>
+        </header>
+    )
+}
+
+export default Header
+
+#pages Folder
+
+
+**Home.js**
+
+import React from "react"
+
+function Home() {
+    return (
+        <h1>Home Page</h1>
+    )
+}
+
+export default Home
+
+
+#services Folder inside pages Folder
+
+**ServiceDetail.js**
+
+import React from "react"
+import {useParams} from "react-router-dom"
+import servicesData from "./servicesData"
+
+function ServiceDetail(props) {
+    const {serviceId} = useParams()
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+    const thisService = servicesData.find(service => service._id === serviceId)
+    
+    return (
+        <div>
+            <h1>Service Detail Page</h1>
+            <h3>{thisService.name} - ${thisService.price}</h3>
+            <p>{thisService.description}</p>
+        </div>
+    )
+}
+
+export default ServiceDetail
+
+
+**ServicesList.js**
+
+
+import React from "react"
+import servicesData from "./servicesData"
+import {Link} from "react-router-dom"
+
+function ServicesList() {
+    const services = servicesData.map(service => (
+        <h3 key={service._id}>
+            <Link to={`/services/${service._id}`}>{service.name}</Link> - ${service.price}
+        </h3>
+    ))
+    return (
+        <div>
+            <h1>Services List Page</h1>
+            {services}
+        </div>
+    )
+}
+
+export default ServicesList
+
+**servicesData.js**
+
+export default [
+    {
+        "name": "Lawn Mowing",
+        "price": 30,
+        "_id": "1",
+        "description": "Have a carpet-like lawn without any work."
+    },
+    {
+        "name": "Leaf Raking",
+        "price": 50,
+        "_id": "2",
+        "description": "Remove those pesky dead tree parts from your property."
+    },
+    {
+        "name": "Weeding",
+        "price": 50,
+        "_id": "3",
+        "description": "Don't let the invaders ruin your yard."
+    },
+    {
+        "name": "Sprinkler repair",
+        "price": 100,
+        "_id": "4",
+        "description": "Keep your irrigation system top-notch."
+    }
+]
+
+
+React Router useRouteMatch:
+
+**App.js**
+
+import React from "react"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import Home from "./pages/Home"
+import Profile from "./pages/profile/Profile"
+
+import {Switch, Route} from "react-router-dom"
+
+function App() {    
+    return (
+        <div>
+            <Header />
+            
+            <Switch>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+                <Route path="/profile">
+                    <Profile/>
+                </Route>
+            </Switch>
+            
+            <Footer />
+        </div>
+    )
+}
+
+export default App
+
+
+
+#profile Folder
+
+**Info.js**
+
+import React from "react"
+
+function Info() {
+    return (
+        <section>
+            <h1>Profile Info</h1>
+            <p>Hello, user! Tons of useful info here...</p>
+        </section>
+    )
+}
+
+export default Info
+
+**Profile.js**
+
+import React from "react"
+import {Link, Switch, Route, useRouteMatch} from "react-router-dom"
+
+import Settings from "./Settings"
+import Info from "./Info"
+
+function Profile() {
+    const {path, url} = useRouteMatch()
+    // https://reacttraining.com/blog/react-router-v5-1/#useroutematch
+
+    return (
+        <div>
+            <h1>Profile Page</h1>
+            <ul>
+                <li><Link to={`${url}/info`}>Profile Info</Link></li>
+                <li><Link to={`${url}/settings`}>Profile Settings</Link></li>
+            </ul>
+            
+            <Switch>
+                <Route path={`${path}/info`}>
+                    <Info/>
+                </Route>
+                <Route path={`${path}/settings`}>
+                    <Settings/>
+                </Route>
+            </Switch>
+        </div>
+    )
+}
+
+export default Profile
+
+**Settings.js**
+
+import React from "react"
+
+function ProfileSettings() {
+    return (
+        <section>
+            <h1>Profile settings</h1>
+            <input type="password"/>
+            <button>Change</button>
+        </section>
+    )
+}
+
+export default ProfileSettings
+
+
+React Router useHistory:
+
+
+**ServiceDetail.js**
+
+import React from "react"
+import {useParams, useHistory} from "react-router-dom"
+
+import servicesData from "./servicesData"
+
+function ServiceDetail() {
+    const {serviceId} = useParams()
+    const history = useHistory()
+    const thisService = servicesData.find(service => service._id === serviceId)
+
+    
+    function handleClick() {
+        console.log("Submitting...")
+        setTimeout(() => {
+            history.push("/services")
+        }, 2000)
+        history.replace("")
+    }
+    
+    return (
+        <div>
+            <h1>Service Detail Page</h1>
+            <h3>{thisService.name} - ${thisService.price}</h3>
+            <p>{thisService.description}</p>
+            <button onClick={handleClick}>Go back to all services</button>
+        </div>
+    )
+}
+
+export default ServiceDetail
+
+
+
+React Router useLocation:
+
+**ServicesList.js**
+
+import React from "react"
+import {Link, useLocation} from "react-router-dom"
+
+import servicesData from "./servicesData"
+
+function ServicesList() {
+    const location = useLocation()
+    console.log(location)
+    
+// {
+//     pathname: "/services", 
+//     search: "?something=hello&blah=goodbye", 
+//     hash: "", 
+//     state: null, 
+//     key: "qyfp8w"
+// }
+    const services = servicesData.map(service => (
+        <div key={service._id}>
+            <h3><Link to={`/services/${service._id}`}>{service.name}</Link> - ${service.price}</h3>
+        </div>
+    ))
+    return (
+        <div>
+            <h1>Services List Page</h1>
+            {services}
+        </div>
+    )
+}
+
+export default ServicesList

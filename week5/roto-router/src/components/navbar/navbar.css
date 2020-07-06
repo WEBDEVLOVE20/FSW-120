@@ -1,0 +1,16 @@
+.navbar-container {
+    background-color: #473d38;
+    padding: 25px;
+}
+
+.navbar-links-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar-links {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}

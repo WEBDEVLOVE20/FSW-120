@@ -1,0 +1,32 @@
+.services-title {
+    color: #8a422f;
+    font-size: 50px;
+    text-align: center;
+    padding: 20px;
+}
+
+.service-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.services{
+    color: #8a422f;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    font-size: 35px;
+}
+
+.services-list {
+    color: #8a422f;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.main-container{
+    background-color: black;
+}

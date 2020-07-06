@@ -1,0 +1,25 @@
+.about-title {
+    color: #8a422f;
+    font-size: 50px;
+    text-align: center;
+    padding: 20px;
+}
+
+.family-photo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.about-container {
+    background-color: black;
+}
+
+.family-info {
+    color: #8a422f;
+    margin-right: 15%;
+    margin-left: 15%;
+    padding: 20px;
+    margin-top: 30px;
+}
