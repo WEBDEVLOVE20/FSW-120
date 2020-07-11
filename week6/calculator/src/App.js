@@ -1,10 +1,10 @@
 import React from 'react';
-import Calculator from './components/Calculator';
-import NumberProvider from './components/NumberProvider';
+import Calculator from './components/calculator/Calculator';
+import NumberProvider from './components/numberProvided/NumberProvider';
 import './App.css'
 
-const App  =  ()  => (
-  <div className="App">
+const App = ()  => (
+  <div>
   <NumberProvider>
     <Calculator />
   </NumberProvider>

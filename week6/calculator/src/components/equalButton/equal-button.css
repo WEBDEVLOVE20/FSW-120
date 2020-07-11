@@ -1,4 +1,4 @@
-.button {
+.equal-button {
     display: flex;
     height: 4em;
     flex: 1;
@@ -6,12 +6,7 @@
     align-items: center;
     font-weight: lighter;
     font-size: 1.4em;
-    background-color: lightgray;
-    color: grey;
+    background-color: #80DED9;
+    color: #37393A;
     outline: 1px solid grey;
 }   
-
-.operator {
-    background-color: lightseagreen;
-    color: white;
-}

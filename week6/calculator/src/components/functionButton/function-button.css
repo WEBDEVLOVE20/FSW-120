@@ -1,0 +1,13 @@
+.function-button {
+    display: flex;
+    height: 4em;
+    flex: 1;
+    width: 95px;
+    justify-content: center;
+    align-items: center;
+    font-weight: lighter;
+    font-size: 1.4em;
+    background-color: lightseagreen;
+    color: white;
+    outline: 1px solid grey;
+}

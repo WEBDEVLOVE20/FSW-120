@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { NumberContext } from './NumberProvider';
+import { NumberContext } from '../numberProvided/NumberProvider';
 import './function-button.css'
 
 const FunctionButton = ({ buttonValue }) => {

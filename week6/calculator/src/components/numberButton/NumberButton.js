@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { NumberContext } from './NumberProvider';
+import { NumberContext } from '../numberProvided/NumberProvider';
+import './number-button.css'
 
 const NumberButton = ({ buttonValue }) => {
   const { handleSetDisplayValue } = useContext(NumberContext);
   return (
-    <button type="button" onClick={() => handleSetDisplayValue(buttonValue)}>
+    <button className="num-button" type="button" onClick={() => handleSetDisplayValue(buttonValue)}>
       {buttonValue}
     </button>
   );
