@@ -1,0 +1,413 @@
+Composition over inheritance:
+
+https://www.youtube.com/watch?v=wfMtDGfHWpA&feature=youtu.be
+
+React Children:
+
+
+**index.js**
+
+import React from "react"
+import ReactDOM from "react-dom"
+import App from "./App"
+
+ReactDOM.render(<App />, document.getElementById("root"))
+
+
+**App.js**
+
+import React from "react"
+import CTA from "./CTA"
+
+function App() {
+    return (
+        <div>
+            <CTA position="right">
+                <h1>This is an important CTA</h1>
+                <button>Click me now or you'll miss out!</button>
+            </CTA>
+            
+            <CTA>
+                <form>
+                    <input type="email" placeholder="Enter email address here"/>
+                    <br />
+                    <button>Submit</button>
+                </form>
+            </CTA>
+        </div>
+    )
+}
+
+export default App
+
+**CTA.js**
+
+import React from "react"
+
+function CTA(props) {
+    return (
+        <div className="border">
+            {props.children}
+        </div>
+    )
+}
+
+export default CTA
+
+
+Render Props Part 1:
+
+**index.js**
+
+document.getElementById("button").addEventListener("click", function(event) {
+    
+})
+
+document.getElementById("input").addEventListener("input", function() {
+    console.log("Input changed!")
+})
+
+document.getElementById("box").addEventListener("mouseover", function() {
+    console.log("Hovered in box!")
+})
+
+
+Render Props Part 2:
+
+**App.js**
+
+import React from "react"
+import Example from "./Example"
+
+function App() {
+    return (
+        <div>
+            <Example render={
+                function(isDaytime) {
+                    return (
+                        <h1>{isDaytime ? "Good day" : "Good evening"}, Bob!</h1>
+                    )
+                }
+            }/>
+        </div>
+    )
+}
+
+export default App
+
+**Example.js**
+
+import React from "react"
+
+function Example(props) {
+    return (
+        <div>
+            {props.render(true)}
+        </div>
+    )
+}
+
+export default Example
+
+
+#2
+
+
+**App.js**
+
+import React from "react"
+import Example from "./Example"
+
+function App() {
+    return (
+        <div>
+            <Example render={
+                function(number) {
+                    return (
+                        <h1>{number >=0 ? "Positive" : "Negative"}</h1>
+                    )
+                }
+            }/>
+        </div>
+    )
+}
+
+export default App
+
+**Example.js**
+
+import React from "react"
+
+function Example(props) {
+    return (
+        <div>
+            {props.render(42)}
+        </div>
+    )
+}
+
+export default Example
+
+#3
+
+
+**App.js**
+
+import React from "react"
+import Example from "./Example"
+
+function App() {
+    return (
+        <div>
+            <Example render={
+                function(bool, number) {
+                    return (
+                        <div>
+                            <h1>{number}</h1>
+                            <h1>{bool ? "true" : "false"}</h1>
+                        </div>
+                    )
+                }
+            }/>
+        </div>
+    )
+}
+
+export default App
+
+
+
+**Example.js**
+
+import React from "react"
+
+function Example(props) {
+    return (
+        <div>
+            {props.render(true, 42)}
+        </div>
+    )
+}
+
+export default Example
+
+
+Render Props Part 3:
+
+
+#Resources
+
+GREAT explanation of HOCs
+https://www.richardkotze.com/coding/understanding-higher-order-components
+
+React docs on HOCs
+https://reactjs.org/docs/higher-order-components.html
+
+V School writeup on HOCs
+https://coursework.vschool.io/hocs/
+
+
+**App.js**
+
+import React from "react"
+import Menu from "./Menu"
+import Favorite from "./Favorite"
+import Toggler from "./Toggler"
+
+function App() {
+    return (
+        <div>
+            <Toggler defaultOnValue={true}>
+                {({on, toggle}) => {
+                    return (
+                    <Menu on={on} toggle={toggle}/>
+                )}}
+            </Toggler>
+            <hr />
+            <Favorite />
+        </div>
+    )
+}
+
+export default App
+
+**Favorite.js**
+
+import React, {Component} from "react"
+import Toggler from "./Toggler"
+
+function Favorite(props) {
+    return (
+        <Toggler render={
+            ({on, toggle}) => (
+                <div>
+                    <h3>Click heart to favorite</h3>
+                    <h1>
+                        <span 
+                            onClick={toggle}
+                        >
+                            {on ? "❤️" : "♡"}
+                        </span>
+                    </h1>
+                </div>
+            )
+        }/>
+    ) 
+}
+
+export default Favorite
+
+**Menu.js**
+
+import React from "react"
+import Toggler from "./Toggler"
+// render the Toggler inside the Menu, and use the render prop to determine what will get displayed
+// remember to bring in the "goodies" (state and methods) to that function so you can make this work
+
+function Menu(props) {
+    return (
+        <div>
+            <button onClick={props.toggle}>{props.on ? "Hide" : "Show"} Menu </button>
+            <nav style={{display: props.on ? "block" : "none"}}>
+                <h6>Signed in as Coder123</h6>
+                <p><a>Your Profile</a></p>
+                <p><a>Your Repositories</a></p>
+                <p><a>Your Stars</a></p>
+                <p><a>Your Gists</a></p>
+            </nav>
+        </div>
+    ) 
+}
+
+export default Menu
+
+**Toggler.js**
+
+import React, {Component} from "react"
+
+class Toggler extends Component {
+    state = {
+        on: this.props.defaultOnValue
+    }
+    
+    static defaultProps = {
+        defaultOnValue: false
+    }
+    
+    toggle = () => {
+        this.setState(prevState => ({on: !prevState.on}))
+    }
+    
+    render() {
+        return (
+            <div>
+                {this.props.children({
+                    on: this.state.on, 
+                    toggle: this.toggle
+                })}
+            </div>
+        )
+    }
+}
+
+export default Toggler
+
+
+Hooks Intro:
+
+#"Hook into" state and lifecycle methods of components without using classes.
+# Only use function components across the board.
+#Improve readability and organization of components.
+
+**useState()
+**useEffect()
+
+
+
+useState() Part 1 - Creating state:
+
+**App.js**
+
+import React, {useState} from "react"
+
+function App() {
+    const [answer] = useState("Yes")
+    return (
+        <div>
+            <h1>Is state important to know? {answer}</h1>
+        </div>
+    )
+}
+
+
+export default App
+
+
+useState() Part 2 - Changing State:
+
+**App.js**
+
+import React, {useState} from "react"
+
+
+function App() {
+    const [count, setCount] = useState(0)
+    const [answer, setAnswer] = useState("Yes") //can set more than one state
+    
+    function increment() {
+        setCount(prevCount => prevCount + 1)
+    }
+    
+    function decrement() {
+        setCount(prevCount => prevCount - 1)
+    }
+    
+    return (
+        <div>
+            <h1>{count}</h1>
+            <button onClick={increment}>Increment</button>
+            <button onClick={decrement}>Decrement</button>
+        </div>
+    )
+}
+
+
+
+export default App
+
+
+useEffect() Part 1:
+
+
+**App.js**
+
+import React, {useState, useEffect} from "react"
+import randomcolor from "randomcolor"
+
+function App() {
+    const [count, setCount] = useState(0)
+    const [color, setColor] = useState("")
+    
+    function increment() {
+        setCount(prevCount => prevCount + 1)
+    }
+    
+    function decrement() {
+        setCount(prevCount => prevCount - 1)
+    }
+    
+    useEffect(() => {
+        setColor(randomcolor())
+    }, [count])
+    
+    return (
+        <div>
+            <h1 style={{color: color}}>{count}</h1>
+            <button onClick={increment}>Increment</button>
+            <button onClick={decrement}>Decrement</button>
+        </div>
+    )
+}
+
+export default App
+
