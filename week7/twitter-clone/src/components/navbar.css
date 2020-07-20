@@ -1,0 +1,27 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.links {
+    text-decoration: none;
+    color: rgb(29, 161, 242);
+    border: rgb(29, 161, 242) 1px solid;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.logout-button {
+    background-color: rgb(29, 161, 242);
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    
+}
+
+.logout-button:hover {
+    background-color: lightskyblue;
+}

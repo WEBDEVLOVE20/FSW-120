@@ -673,3 +673,85 @@ function ServicesList() {
 }
 
 export default ServicesList
+
+# Intro to React Router
+# What is a SPA?
+React Router is an excellent tool we can use to help us easily turn our React applications into Single Page Applications (SPAs).
+In the early days of the web, when you had multiple HTML pages to your web site, you needed to create a new HTML file for every page. If you had elements of your web site you wanted to be consistent across every page (such as a navbar or a footer), you would need to copy/paste the HTML code for that element onto every new page your site had.
+Obviously this isn't a very DRY approach to web development. If your site has 100 pages and you needed to make one small content change to your navbar, you would need to make that change to all 100 pages on your website. In client-side applications, the solution to this problem is the Single Page Application!
+SPAs structure your web site like a record player - some parts will always remain the same (the player itself, the dial controls, the stylus, etc.) and some parts will be switched out (the record). Don't let the name "Single Page" fool you - you can use the concept of SPAs to create the illusion of multiple pages to the user. In reality, when your application loads, the client learns about all of the other "records" you may want to use depending on where the user navigates to on your site and then switches the individual views out whenever it needs to.
+Imagine a simple business website with just a few pages - "Home", "About", and "Contact".
+That business will likely want to have a navbar to help the user navigate between these pages, and perhaps a footer that will always be at the bottom of the page. But the main content of the page - the middle part below the navbar and above the footer - will need to switch out based on which "page" you're trying to display.
+# How to use React Router
+The following assumes you've already got an knowledge of creating React applications using create-react-app (and that you've already done so before trying to follow along with this tutorial).
+# Installation
+React Router works in both React Web and React Native (mobile) environments. We'll be focusing solely on using it for the web. So first thing, install react-router-dom
+npm install react-router-dom
+# Setup
+React Router comes with a component called <BrowserRouter /> that tells the app which parts you're wanting to allow routing in. For our purposes, we'll want routing to be a part of our entire application, so we want to wrap our rendered <App/> component in the <BrowserRouter/> component. In index.js:
+...
+import { BrowserRouter } from "react-router-dom";
+...
+ReactDOM.render(
+    <BrowserRouter>
+        <App/>
+    </BrowserRouter>
+, document.getElementById("root"));
+# Switching views
+Our main <App/> component should be where we lay out how our website is structured. As you saw from the above gif, we want our app to always include a Navbar and a Footer, but for the main content in the middle to be able to switch out. The component that gets rendered in the "main content" section will depend on the URL route. For example, if the user navigates to https://oursite.com/, the <Home/> component should be rendered. If they navigate to https://oursite.com/about, the <About/> component should render in the main content area.
+To activate a section of your site that can be switched out, you'll use the <Switch></Switch> component from React Router. The <Switch></Switch> component expects to see nested <Route/> components. <Route/> components expect to have a prop for the path (which is the url path the user is navigating to), and another for the component that should be rendered if the specified path is followed. See below:
+...
+// Need to import Switch and Route
+import { Switch, Route } from "react-router-dom";
+// Import the Navbar and Footer, which will always be on the screen:
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+// Also need to import our components representing the 
+// different options for the main content of the site
+import Home from "./Home";
+import About from "./About";
+import Contact from "./Contact";
+import Services from "./Services";
+// Here's the main App component. It doesn't have 
+// state, so it can be a stateless functional component:
+function App () {
+    return (
+        <div>
+            <Navbar/>  {/*This is outside Switch, so it will always render*/}
+            <Switch>
+                <Route path="/" component={Home}/>
+                <Route path="/about" component={About}/>
+                <Route path="/contact" component={Contact}/>
+                <Route path="/services" component={Services}/>
+            </Switch>
+        </div>
+    )
+}
+One quick fix we'll need to make has to do with the way the path prop works - the URL doesn't necessarily need to match the specified path exactly, but instead is considered matched if the current path (whatever is in the URL bar after the base URL of the site) matches the beginning of the specified path. In other words, if we try to navigate to mysite.com/about, the path="/" will match because /about begins with a slash (/).
+If we only want a path to render if it matches exactly, we need to add the exact prop to the route. In the above case, it would be enough to just add it to the first <Route/> components, since the other ones are more unique:
+...
+<Switch>
+    <Route exact path="/" component={Home}/>
+    <Route path="/about" component={About}/>
+    ... etc. (Notice there's no need for `exact` on the /about Route)
+</Switch>
+...
+# Routing users to another view
+One major difference you'll need to get used to when using React Router is that you can't simply use anchor (<a>) tags anymore to send people to another route (switch out the view). React Router comes with a component we use in place of anchor tags called Link. In our navbar, where we normally would have a series of <a> tags, we can instead use <Link>:
+// Navbar.js
+import React from "react";
+import { Link } from "react-router-dom";
+function Navbar (props) {
+    return (
+        <div className="nav">
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
+            <Link to="/services">Services</Link>
+        </div>
+    )
+}
+export default Navbar;
+The to prop tells the component which route path the page should be sent to. Our previously-written Switch (in App.js) will then render the correct, corresponding component based on the correct path in the <Route>.
+# Conclusion
+React Router is an excellent way to use React to create dynamic single-page applications to display and interact with your data! There are a number of other neat things you can do with React Router, so make sure to check out the official documentation to learn all about it.
