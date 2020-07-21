@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "name": "Tim Smith",
+        "tag": "@smitty154",
+        "message": "Back to the grind (or did we ever leave?) - Happy Monday all. It's a new week, start strong and remember to weave kindness into all that you do. Use your talents & passion to make the impossible happen.",
+        "imageName": "https://images.unsplash.com/photo-1584999734482-0361aecad844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+        "id": 2,
+        "name": "Sarah Stevens",
+        "tag": "@sunflowerchk",
+        "message": "Today will never come again. Be a blessing. Be a friend. Encourage someone. Take time to care. Let your words heal, and not wound.",
+        "imageName": "https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+        "id": 3,
+        "name": "Brittni Weis",
+        "tag": "@BWeis",
+        "message": "It certainly is a great day to be alive.",
+        "imageName": "https://images.unsplash.com/photo-1581992652564-44c42f5ad3ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+        "id": 4,
+        "name": "Vince Perez",
+        "tag": "@Perez_V",
+        "message": "Many people wait for an opportunity instead of creating an opportunity. Fortune favors the bold. If you want something, take it. If you desire something, go get it. If you don't attack your dreams they end up becoming regrets.",
+        "imageName": "https://images.unsplash.com/photo-1519815652305-daa7825b52aa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+        "id": 5,
+        "name": "Bonnie Howell",
+        "tag": "@bonbon74",
+        "message": "When we treat others with kindness and forgiveness, we are actually practicing an important characteristic we expect to see from God the Almighty.",
+        "imageName": "https://images.unsplash.com/photo-1590955256716-d7676e3efbf1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+        "id": 6,
+        "name": "Cindy Rossum",
+        "tag": "@cindyros",
+        "message": "Some were lucky their parent already made it for them but our parent are lucky because we will make it for themRaised fist. Keep pushing!",
+        "imageName": "https://images.unsplash.com/photo-1546422401-ae86d9d58b0d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+    },
+    {
+        "id": 7,
+        "name": "Hailey Dice",
+        "tag": "@rollthedice",
+        "message": "Eventually, all things fall into place. Until then, laugh at the confusion, live for the moments and know everything happens for a reason. ",
+        "imageName": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+        "id": 8,
+        "name": "Brenda Marks",
+        "tag": "@marks756",
+        "message": "Don't allow sadness to build a nest in your soul. Shake your branches and make it fly away.",
+        "imageName": "https://images.unsplash.com/photo-1593907300483-07877e902efb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+        "id": 9,
+        "name": "Corey Roush",
+        "tag": "@croush8",
+        "message": "At this age, I still can't swim, I'm totally cool with that, I mean I've never seen a fish walking.",
+        "imageName": "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+    }
+]

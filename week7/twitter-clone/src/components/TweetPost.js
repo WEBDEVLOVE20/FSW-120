@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import TweetsList from './TweetsList';
 import './tweet-post.css';
-
+import FeedList from "./FeedList"
 
 class TweetPost extends Component {
     constructor() {
@@ -16,6 +16,17 @@ class TweetPost extends Component {
     }
 
     handleChange = (e) => {
+        const { name, value } = e.target
+        this.setState({ [name] : value})
+    }
+
+    handleDelete = (i) => {
+        let removeTweet = this.state.tweets
+        removeTweet.splice(i, 1)
+        this.setState( { tweets: removeTweet })
+    }
+
+    handleEdit = (e) => {
         const { name, value } = e.target
         this.setState({ [name] : value})
     }
@@ -40,7 +51,7 @@ class TweetPost extends Component {
             <div>
                     <form className="post-wrapper" id="tweetArea" onSubmit={this.handleSubmit}>
                         <input
-                            className="input-left"
+                            className="user-name"
                             type="text"
                             name="userName"
                             value={this.state.userName} 
@@ -50,7 +61,7 @@ class TweetPost extends Component {
                             required={true}
                         />
                         <input
-                            className="input-left"
+                            className="tag-name"
                             type="text"
                             name="tag"
                             value={this.state.tag} 
@@ -59,6 +70,7 @@ class TweetPost extends Component {
                             minLength="3"
                             required={true}
                         />
+                        <button className="tweet-button">Tweet</button>
                         <div className="text-area">
                             <textarea
                                 className="text-box"
@@ -66,18 +78,21 @@ class TweetPost extends Component {
                                 name="textArea"
                                 placeholder="What's Happening?"
                                 value={this.state.textArea}
-                                rows="10"
-                                cols="100"
+                                rows="8"
+                                cols="62"
                                 onChange={this.handleChange}
                                 minLength="3"
                                 required={true}
                             />
-                            <button className="tweet-button">Tweet</button>
+                            
                         </div>
                     </form>
                 <TweetsList
-                    tweets={this.state.tweets}     
+                    tweets={this.state.tweets}
+                    handleDelete={this.handleDelete}
+                    handleEdit={this.handleEdit}    
                 />
+                <FeedList />
             </div>
         );
     }

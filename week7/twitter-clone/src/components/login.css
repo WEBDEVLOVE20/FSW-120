@@ -11,8 +11,8 @@
 
 }
 
-input,
-input::-webkit-input-placeholder {
+.login-box,
+.login-box::-webkit-input-placeholder {
     font-size: 20px;
     line-height: 1.8;
 }

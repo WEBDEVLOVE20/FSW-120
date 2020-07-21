@@ -7,6 +7,7 @@ import TweetPost from './components/TweetPost';
 import Login from './components/Login';
 
 
+
 const App = () => {
 
   return (
@@ -19,7 +20,7 @@ const App = () => {
         <Route path='/login' component={Login} />
         <Route path='/tweets' component={TweetPost}/>
       </Switch>
-
+   
     </div>
   );
 }
