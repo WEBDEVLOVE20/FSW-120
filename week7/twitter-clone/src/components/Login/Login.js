@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { withAuth } from '../providers/AuthProvider'
-import './login.css'
-
+import { withAuth } from '../../providers/AuthProvider';
+import './login.css';
+import { Link } from 'react-router-dom';
 
 const Login = ({ handleAuthLogin, getToken, userToken }) => {
   const [userName, setUserName] = useState('')
@@ -45,10 +45,10 @@ console.log(userToken)
           onChange={(e) => setPassword(e.target.value)}
         />
         <br/>
-        <button className='login-button'> Log in </button>
+        <Link to="/tweets"><button className='login-button'> Log in </button> </Link>
       </form>
     </div>
   );
 }
 
-export default withAuth(Login)
+export default withAuth(Login);

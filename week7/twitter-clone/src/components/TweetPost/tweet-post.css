@@ -1,8 +1,6 @@
 .post-wrapper {
-    text-align: center;
     margin-top: 5%;
 }
-
 
 .user-name {
   font-size: 16px;
@@ -30,4 +28,12 @@
   border: none;
   color: white;
   background-color: #15202a;
+}
+
+@media screen and (min-width: 700px) {
+  
+  .post-wrapper {
+    text-align: center;
+    margin-top: 5%;
+  }
 }

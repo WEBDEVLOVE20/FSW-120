@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Tweet from './Tweet';
+import Tweet from '../Tweet/Tweet';
 
 
 class TweetsList extends Component {
-
+    
     render() {
     const mappedTweets = this.props.tweets.map((tweet, i) =>  { 
         return (
@@ -15,7 +15,6 @@ class TweetsList extends Component {
                 tag={tweet.tag}
                 textArea={tweet.textArea}
                 handleDelete={this.props.handleDelete}
-                handleEdit={this.props.handleEdit}
             />
             </div>
         );

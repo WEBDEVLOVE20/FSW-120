@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 
 const AuthContext = React.createContext()
 
@@ -46,7 +46,7 @@ class AuthProvider extends Component {
     }
 }
 
-export default AuthProvider
+export default AuthProvider;
 
 export const withAuth = C => props => (
     <AuthContext.Consumer>

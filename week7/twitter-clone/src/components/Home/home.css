@@ -1,0 +1,28 @@
+.title-container {
+   text-align: center;
+   margin-bottom: 50px; 
+   margin-top: 20px;
+   font-size: 35px;
+   color:rgb(29, 161, 242);
+   text-shadow: #15202a 4px 4px 7px;
+}
+
+.home-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.home-pics {
+    width: 500px;
+    box-shadow: #15202a 8px 8px 8px;
+    
+}
+
+.home-text {
+    color: #15202a;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+

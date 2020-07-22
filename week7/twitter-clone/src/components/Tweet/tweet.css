@@ -1,12 +1,13 @@
+.tweet-container {
+    display: flex;
+}
+
 .inner-body {
     display: flex;
     flex-direction: row;
 }
   
 .tweet-body {
-    display: flex;
-    flex-direction: column;
-    margin-left: 30%;
     width: 600px;
     height: 170px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
@@ -61,7 +62,7 @@
   
 .tweet {
     margin-left: 15px;
-    margin-top: 7px;
+    margin-top: 15px;
     width: 445px;
     height: 88px;
     font-family: HelveticaNeue;
@@ -74,7 +75,6 @@
     color: #ffffff;
 } 
 
-
 .tweet-button {
     background-color: rgb(29, 161, 242);
     color: white;
@@ -84,4 +84,19 @@
     border: none;
     margin-left: 15px;
     margin-bottom: 5px;
+}
+
+.delete-button {
+    margin-top: 70px;
+    height: 40px;
+    padding: 8px;
+   
+}
+
+
+@media screen and (min-width: 480px) {
+    .tweet-container {
+        display: flex;
+        justify-content: center;
+    }
 }

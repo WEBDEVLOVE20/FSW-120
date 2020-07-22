@@ -1,6 +1,6 @@
 import React from 'react';
-import feedData from './feedData.json'
-import Feed from "./Feed"
+import feedData from './feedData.json';
+import Feed from "./Feed";
 
 class FeedList extends React.Component {
     constructor() {

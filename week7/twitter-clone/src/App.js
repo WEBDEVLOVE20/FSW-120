@@ -1,18 +1,16 @@
 import React from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import TweetPost from './components/TweetPost';
-import Login from './components/Login';
-
+import Navbar from './components/Navbar/Navbar';
+import Home from './components/Home/Home';
+import TweetPost from './components/TweetPost/TweetPost';
+import Login from './components/Login/Login';
 
 
 const App = () => {
 
   return (
-    <div className="App">
-
+    <div >
       <Navbar />
 
       <Switch>
@@ -20,7 +18,6 @@ const App = () => {
         <Route path='/login' component={Login} />
         <Route path='/tweets' component={TweetPost}/>
       </Switch>
-   
     </div>
   );
 }

@@ -1,9 +1,10 @@
 import React from 'react';
 
 
-function Feed(props) {
+const Feed = (props) => {
 
     return (
+        <div className="tweet-container">
         <div className="tweet-body">
             <div className="inner-body">
                 <img className="picture" src={props.item.imageName} alt="person"/>
@@ -16,7 +17,8 @@ function Feed(props) {
                 </div>
             </div>
         </div>
+        </div>
     )
 }
 
-export default Feed
+export default Feed;
