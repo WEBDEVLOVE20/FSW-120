@@ -26,6 +26,14 @@ class TweetPost extends Component {
         this.setState( { tweets: removeTweet })
     }
 
+    handleEdit = (i, changes) => {
+        this.setState(prevState => {
+        let editedTweets = prevState.tweets
+        const index = editedTweets.findIndex(tweet => tweet.id === i)
+        const updatedTweet = Object.assign(editedTweets[index], changes)
+        return ({ updatedTweet })})
+    }
+
     handleSubmit = (e) => {
         e.preventDefault()
         let newTweet = {
@@ -83,6 +91,8 @@ class TweetPost extends Component {
                 </form>
                 <TweetsList
                     tweets={this.state.tweets}
+                    handleEdit={(i, edits) => {
+                        this.handleEdit(i, edits)}}
                     handleDelete={this.handleDelete}  
                 />
                 <FeedList />

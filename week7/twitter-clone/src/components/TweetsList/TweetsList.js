@@ -5,16 +5,20 @@ import Tweet from '../Tweet/Tweet';
 class TweetsList extends Component {
     
     render() {
-    const mappedTweets = this.props.tweets.map((tweet, i) =>  { 
+    const mappedTweets = this.props.tweets.map((tweet, i) => { 
+      
         return (
             <div>
             <Tweet 
-                key={i}
-                index={i}
+                key={tweet.id}
+                index={tweet.id}
                 userName={tweet.userName}
                 tag={tweet.tag}
                 textArea={tweet.textArea}
                 handleDelete={this.props.handleDelete}
+                handleEdit={(i, edits) => {
+                this.props.handleEdit(i, edits)}}
+                tweet={tweet}
             />
             </div>
         );

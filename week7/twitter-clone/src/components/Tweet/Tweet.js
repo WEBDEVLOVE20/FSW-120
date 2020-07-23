@@ -1,9 +1,11 @@
-import React from 'react';
+  
+import React, { useState } from 'react';
 import './tweet.css';
+import EditTweet from '../EditTweet/EditTweet'
 
 
-const Tweet = ({ index, userName, tag, textArea, handleDelete }) => {
-
+const Tweet = ({ i, userName, tag, textArea, handleDelete, handleEdit }) => {
+const [edit, setEdit] = useState({ editing: false, id: 0 })
 
     return (
         <div className="tweet-container">
@@ -17,8 +19,17 @@ const Tweet = ({ index, userName, tag, textArea, handleDelete }) => {
                     </div>
                         <p className="tweet">{textArea}</p>
                     </div>
-                        <button className="delete-button" onClick={() => handleDelete (index) }> Delete </button>
+                    <div className='button-container'>
+                        <button className="edit-button" onClick={() => setEdit({ makeEdits: true, id: i })}> Edit </button>
+                        <button className="delete-button" onClick={() => handleDelete (i) }> Delete </button>
+                        </div>
                 </div>
+                    {edit.makeEdits ? <EditTweet
+                    i = {i}
+                    handleEdit={(i, edits) => {
+                    handleEdit(i, edits)
+                    setEdit({makeEdits: false, id: i})
+                    }}/>: <p></p> }
             </div>
         </div>
     );

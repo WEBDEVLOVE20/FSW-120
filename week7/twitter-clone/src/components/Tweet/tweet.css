@@ -87,10 +87,26 @@
 }
 
 .delete-button {
-    margin-top: 70px;
+    margin-top: 20px;
     height: 40px;
     padding: 8px;
-   
+    text-align: center;
+    background-color: rgb(29, 161, 242);
+    color: white;
+}
+
+.edit-button {
+    margin-top: 30px;
+    height: 45px;
+    padding: 15px;
+    background-color: rgb(29, 161, 242);
+    color: white;
+}
+
+.button-container {
+    display: flex;
+    display: inline;
+
 }
 
 
